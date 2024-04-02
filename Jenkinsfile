@@ -6,7 +6,7 @@ pipeline {
  
    stage('build') {
 
-         script {
+         steps {
      
           sh 'docker build -t second:latest . '
           sh 'docker run -it second'
