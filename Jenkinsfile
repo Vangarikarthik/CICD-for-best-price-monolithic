@@ -17,7 +17,7 @@ pipeline {
           sh "docker build -t $IMAGE_TAG . "
           
             } }
-  stage('build') {
+  stage('run') {
 
          steps {
 
