@@ -6,7 +6,8 @@ pipeline {
       
        IMAGE_TAG= "second:latest"
        CONTAINER_NAME= "second-container"
-  
+       }
+
     stages {
  
    stage('build') {
@@ -26,5 +27,5 @@ pipeline {
                }  }
          }
 
-       }
+       
    }
