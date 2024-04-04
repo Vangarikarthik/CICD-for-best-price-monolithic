@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: best-price-deployment
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: best-price-app
+  template:
+    metadata:
+      labels:
+        app: best-price-app
+    spec:
+      containers:
+      - name: best-price-conatainer
+        image: second:latest  # Replace with your Docker image name and tag
+        ports:
+        - containerPort: 3005  # Adjust the port as needed
+
+
+
