@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: best-price-conatainer
-        image: second:latest  # Replace with your Docker image name and tag
+        image: karthikvangari/second:latest  # Replace with your Docker image name and tag
         ports:
-        - containerPort: 3005  # Adjust the port as needed
+        - containerPort: 3000  # Adjust the port as needed
 
 
 

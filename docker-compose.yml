@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  registry:
+    image: registry:2
+    ports:
+      - "5005:5005"
+    environment:
+      REGISTRY_HTTP_ADDR: 0.0.0.0:5005
+
