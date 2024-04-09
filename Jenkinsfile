@@ -28,10 +28,11 @@ pipeline {
             stage('Deploy') {
             steps {
                 script {
-                    retry(5) {
+                    
                         sh 'kubectl apply -f deploy.yaml'
                         sh 'kubectl apply -f service.yaml'
-                        
+                    retry(5) {
+    
                         def serviceStatus = sh(script: 'kubectl get svc best-price-service', returnStdout: true).trim()
                         if (serviceStatus.contains('pending')) {
                             echo 'Service is still pending. Retrying in 30 seconds...'
