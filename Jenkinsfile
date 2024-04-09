@@ -31,15 +31,7 @@ pipeline {
                     
                         sh 'kubectl apply -f deploy.yaml'
                         sh 'kubectl apply -f service.yaml'
-                    retry(5) {
-    
-                        def serviceStatus = sh(script: 'kubectl get svc best-price-service', returnStdout: true).trim()
-                        if (serviceStatus.contains('pending')) {
-                            echo 'Service is still pending. Retrying in 30 seconds...'
-                            sleep 30
-                            error 'Service not available yet'
-                        }
-                    }
+                  
                 }
             }
         }
@@ -47,6 +39,7 @@ pipeline {
         stage('Open URL') {
             steps {
                 script {
+                    sleep 40
                     def serviceIP = sh(script: 'minikube service best-price-service --url', returnStdout: true).trim()
                     echo "Service URL: ${serviceIP}"
                    
